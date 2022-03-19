@@ -1,4 +1,3 @@
-const items = document.querySelectorAll('li');
 const button = document.querySelector('button');
 const ul = document.querySelector('ul');
 
@@ -9,11 +8,12 @@ button.addEventListener('click', () => {
     ul.prepend(li);
 });
 
-//iterate through each for loop and remove each task when clicked
-items.forEach(item => {
-    item.addEventListener('click', e => {
+/** attach event listener to the ul so that any new li tags
+ *  will also have an event listener attached to it */
+ul.addEventListener('click', e => {
+    if(e.target.tagName === 'LI'){
         e.target.remove();
-    });
+    }
 });
 
 
